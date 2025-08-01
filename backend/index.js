@@ -10,7 +10,7 @@ const createAdmin = require("./routes/adminRoutes/RouteadminCreation.js");
 const loginAdmin = require("./routes/adminRoutes/RouteadminLogin.js");
 const createEmp = require("./routes/empRoutes/RouteEmpCreate.js");
 const loginEmp = require("./routes/empRoutes/RouteEmpLogin.js");
-
+const milkCollection = require("./routes/empRoutes/RouteMilkCollection.js")
 
 const app = express();
 app.use(cors());    
@@ -43,6 +43,7 @@ app.use("/admin",loginAdmin);
 
 app.use("/emp",createEmp);
 app.use("/emp",loginEmp);
+app.use("/emp",milkCollection);
 
 app.listen(5555, () => {
     console.log("server is running on port 5555");
