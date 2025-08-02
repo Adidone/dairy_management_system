@@ -2,9 +2,11 @@ const User = require("../../models/User.js");
 const bcrypt = require("bcrypt");
 const createUser = async (req, res) => {
     try{
-        const{custID,name,email,password,role, phone_no, address} = req.body;
-        // console.log(name, email, password, role, phone_no, address);
-        const user = await User.findOne({email});  
+ 
+        let{custID,name,email,password,role, phone_no, address} = req.body;
+        
+        const user = await User.findOne({email}); 
+ 
         if(user){
             return res.status(409).json({
                 message: "ID already exists with this email",
@@ -15,8 +17,7 @@ const createUser = async (req, res) => {
         const newUser = new User({
             custID,name, email, password:hashed_password, role, phone_no, address
         });
-        await newUser.save();   
-        // console.log(newUser.name);
+        await newUser.save();
         return res.status(201).json({   
             message: "User created successfully",
             success: true

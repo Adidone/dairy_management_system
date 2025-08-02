@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
-const userSchema = new mongoose.Schema({
-    custID: {
-        type: String,
+const empSchema = new mongoose.Schema({
+    empID: {
+        type:String,
         required:true,
     },
     name: {
@@ -30,7 +30,9 @@ const userSchema = new mongoose.Schema({
         type: String,
         required:true
     }
+}, {
+    timestamps: true,
 });
 
-const User = mongoose.model("User", userSchema);
-module.exports = User;
+const Emp = mongoose.model("Emp", empSchema);
+module.exports = Emp;

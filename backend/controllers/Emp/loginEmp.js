@@ -1,13 +1,13 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const User = require("../../models/User.js");
+const Emp = require("../../models/Employe");
 
 require("dotenv").config();
 
 const loginEmp = async(req,res)=>{
     try{
         const{email,password} = req.body;
-        const user = await User.findOne({ email });
+        const emp = await Emp.findOne({ email });
         
 
         if(!user){
@@ -29,7 +29,7 @@ const loginEmp = async(req,res)=>{
 
         const jwtToken = jwt.sign(
             {
-                email:user.email
+                email:emp.email
             },
             process.env.JWT_SECRET,
             {

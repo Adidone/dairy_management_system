@@ -78,3 +78,10 @@ Record if anything is used or needed (e.g., cans, packaging).
   "phone_no":"3424234324",
   "address":"kagal"
 }
+
+{
+  "custID":"C1",
+  "quantity":"3",
+  "fat":"3",
+  "rate":"300"
+}

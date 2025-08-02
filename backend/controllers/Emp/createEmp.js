@@ -1,22 +1,20 @@
-const User = require("../../models/User.js");
+const Emp = require("../../models/Employe.js");
 const bcrypt = require("bcrypt");
 const createEmp = async (req, res) => {
     try{
         const{empID,name,email,password,role, phone_no, address} = req.body;
-        // console.log(name, email, password, role, phone_no, address);
-        const user = await User.findOne({email});  
-        if(user){
+        const emp = await Emp.findOne({email});  
+        if(emp){
             return res.status(409).json({
                 message: "ID already exists with this email",
                 success: false      
             });
         }
         const hashed_password = await bcrypt.hash(password,10);
-        const newUser = new User({
+        const newEmp = new Emp({
             empID,name, email, password:hashed_password, role, phone_no, address
         });
-        await newUser.save();   
-        // console.log(newUser.name);
+        await newEmp.save();
         return res.status(201).json({   
             message: "Emp created successfully",
             success: true

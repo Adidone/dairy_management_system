@@ -1,10 +1,17 @@
 const Milk = require("../../models/MilkDetails");
 const User = require("../../models/User");
+const Emp = require("../../models/Employe")
 const milkCollection = async(req,res)=>{
     try{
-        const{custID,quantity,fat,rate,date,employe} = req.body;
 
-        const emp = await User.findOne({empID:employe});
+        const indexes = await Milk.collection.getIndexes();
+     
+        // await Milk.collection.dropIndex("employe_1");
+        // console.log(indexes);
+
+        const{custID,quantity,fat,rate,date,empID} = req.body;
+
+        const emp = await Emp.findOne({empID});
         if(!emp){
             return res.status(409).json({
                 message:"This employe is not available",
@@ -12,6 +19,13 @@ const milkCollection = async(req,res)=>{
             })
         }
         
+        const user = await User.findOne({custID});
+        if(!user){
+            return res.status(409).json({
+                message:"Customer is not registered",
+                sucess:false
+            })
+        }
 
         const milk = await Milk.findOne({custID});
         if(milk){
@@ -22,7 +36,7 @@ const milkCollection = async(req,res)=>{
         }
 
         const newCollection = new Milk({
-            custID,quantity,fat,rate,date,employe
+            custID,quantity,fat,rate,date,empID
         })
 
         await newCollection.save();

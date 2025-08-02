@@ -5,7 +5,6 @@ const milkSchema = new mongoose.Schema({
     custID:{
         type:String,
         required:true,
-        unique:true,
     },
     quantity:{
         type:Number,
@@ -23,13 +22,10 @@ const milkSchema = new mongoose.Schema({
         type:Date,
         required:true,
     },
-    employe:{
+    empID:{
         type:String,
-        required:true,
-        unique:true,
+        required:true
     }
-},{
-    timestamps:true,
 });
 
 const Milk = mongoose.model("Milk",milkSchema);

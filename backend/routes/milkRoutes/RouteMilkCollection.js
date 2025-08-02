@@ -1,5 +1,5 @@
 const express = require('express'); 
-const milkCollection = require('../../controllers/Emp/milkCollection');
+const milkCollection = require('../../controllers/Milk/milkCollection');
 
 const router = express.Router();
 
