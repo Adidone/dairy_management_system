@@ -1,0 +1,206 @@
+.dashboard-main {
+    height: 97.8vh;
+    width: 99.6%;
+    /* background-color: aqua; */
+    border-radius: 20px;
+    margin-right: 20px;
+    margin-left: 3px;
+    margin-top: 4px;
+    /* border: 1.5px solid black; */
+}
+
+.gap {
+    height: 15px;
+}
+
+.dashboard-header {
+    margin-left: 20px;
+    height: 95px;
+    width: 97.5%;
+    /* background-color: grey; */
+    border-radius: 14px;
+    border: 1.5px solid black;
+    display: flex;
+    flex-direction: row;
+}
+
+.dashboard-content {
+    height: 82.5%;
+    width: 97.3%;
+    margin-left: 23px;
+    margin-top: 15px;
+    border-radius: 14px;
+    /* background-color: white; */
+    border: 1.5px solid black;
+}
+
+.dashboard-left {
+    width: 25%;
+    height: 93%;
+    margin-left: 22px;
+    border-radius: 14px;
+    /* background-color: black; */
+    border: 1.5px solid black;
+}
+
+.gap-content {
+    height: 22px;
+    width: 100%;
+}
+
+.dashboard-right {
+    /* background-color: grey; */
+    height: 93.5%;
+    width: 71.3%;
+    margin-left: 450px;
+    margin-top: -610px;
+    border-radius: 14px;
+    display: flex;
+    gap: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.frow {
+    height: 60%;
+    width: 100%;
+    /* background-color: black; */
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+}
+
+.box1 {
+    /* background-color: red; */
+    border: 1.5px solid black;
+    height: 100%;
+    width: 49.8%;
+    border-radius: 20px;
+}
+
+.box2 {
+    /* background-color: red; */
+    border: 1.5px solid black;
+    height: 100%;
+    width: 48%;
+
+    border-radius: 20px;
+}
+
+.srow {
+    height: 40%;
+    width: 100%;
+    /* background-color: black; */
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.small1 {
+    /* background-color: red; */
+    border: 1.5px solid black;
+    height: 100%;
+    width: 36%;
+    border-radius: 15px;
+}
+
+.small2 {
+    /* background-color: red; */
+    height: 100%;
+    width: 36%;
+    border-radius: 15px;
+    border: 1.5px solid black;
+}
+
+.small3 {
+    height: 100%;
+    width: 25%;
+    /* background-color: red; */
+    border-radius: 100%;
+    border: 1.5px solid black;
+}
+
+.header-logo {
+    height: 60px;
+    width: 70px;
+    margin-left: 10px;
+    margin-top: 14px;
+}
+
+.header-left {
+    display: flex;
+    flex-direction: row;
+}
+
+.header-right{
+    margin-top: 25px;
+    margin-left: 1100px;
+}
+
+.header-right button{
+    height: 40px;
+    margin-left: 30px;
+    
+}
+
+.logout{
+    background-color: red;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.b{
+    width: 96%;
+    height: 40px;
+}
+
+.box1-title{
+    text-align: center;
+    background-color: rgb(147, 147, 221);
+    color: white;
+}
+.sellers{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.seller{
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+    margin-left: 95px;
+}
+
+.seller p{
+    font-size: 20px;
+}
+
+.small3 p{
+    text-align: center;
+    font-size: 20px;
+}
+
+.small3 h1{
+    text-align: center;
+    font-size: 50px;
+    color: blue;
+}
+
+.days{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.day{
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+    margin-left: 110px;
+}

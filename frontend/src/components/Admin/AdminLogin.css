@@ -1,0 +1,67 @@
+body {
+    background-color: white;
+
+}
+
+.logo {
+    text-align: center;
+    margin-top: 220px;
+}
+
+.logo img {
+    height: 110px;
+}
+
+.logo p {
+    background-color: rgb(229, 217, 217);
+    margin-left: 750px;
+    margin-right: 750px;
+    border-radius: 6px;
+    border:2px solid black; 
+}
+
+.label1 {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.label2 {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+input {
+    margin-left: 700px;
+    margin-right: 700px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid black;
+    outline: none;
+    margin-top: 10px;
+    font-size: larger;
+    color: grey;
+}
+
+label {
+    /* background-color: aqua; */
+    font-size: 20px;
+    letter-spacing: 1px;
+    margin-left: -210px;   
+}
+
+.btn{
+    text-align: center;
+    margin-top: 30px;
+    
+}
+button{
+    height: 30px;
+    width: 120px;
+    color: white;
+    background-color: blue;
+    border: none;
+    border-radius: 8px;
+}
