@@ -1,13 +1,13 @@
 
-const User = require("../../models/User.js");
+const Complaint = require("../../models/Complaint");
 
-const showUsers = async(req,res)=>{
+const showComplaints = async(req,res)=>{
     try{
        
-        const user = await User.find().select("custID name email phone_no address");
+        const complaint = await Complaint.find();
 
         return res.status(201).json({
-            data:user,
+            data:complaint,
             sucess:true
         })
     }
@@ -18,4 +18,4 @@ const showUsers = async(req,res)=>{
         })
     }
 }
-module.exports = showUsers;
+module.exports = showComplaints;

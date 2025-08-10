@@ -61,16 +61,16 @@ function AdminLogin() {
 
         <div className="label1">
           <label htmlFor="username">username</label>
-          <input type="email" name="username" id="username" onChange={handleChange}/>
+          <input className="input" type="email" name="username" id="username" onChange={handleChange}/>
         </div>
 
         <div className="label2">
           <label htmlFor="password">password</label>
-          <input type="password" name="password" id="password" onChange={handleChange}/>
+          <input className="input" type="password" name="password" id="password" onChange={handleChange}/>
         </div>
 
         <div className="btn">
-          <button type="submit" onClick={handleSubmit}>
+          <button type="submit" onClick={handleSubmit} className="btn4">
             LOGIN
           </button>
         </div>

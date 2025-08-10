@@ -1,7 +1,10 @@
+body{
+    background-color: white;
+}
 .dashboard-main {
     height: 97.8vh;
     width: 99.6%;
-    /* background-color: aqua; */
+    background-color: rgb(180, 168, 168);
     border-radius: 20px;
     margin-right: 20px;
     margin-left: 3px;
@@ -15,9 +18,9 @@
 
 .dashboard-header {
     margin-left: 20px;
-    height: 95px;
+    height: 80px;
     width: 97.5%;
-    /* background-color: grey; */
+    background-color: white;
     border-radius: 14px;
     border: 1.5px solid black;
     display: flex;
@@ -30,7 +33,7 @@
     margin-left: 23px;
     margin-top: 15px;
     border-radius: 14px;
-    /* background-color: white; */
+    background-color: white;
     border: 1.5px solid black;
 }
 
@@ -123,8 +126,9 @@
 .header-logo {
     height: 60px;
     width: 70px;
+    border-radius: 70px;
     margin-left: 10px;
-    margin-top: 14px;
+    margin-top: 10px;
 }
 
 .header-left {
@@ -144,7 +148,14 @@
 }
 
 .logout{
+    color: white;
     background-color: red;
+}
+
+.header-right button{
+    /* background-color: red; */
+    height: 25px;
+    width: 100px;
 }
 
 .buttons{
@@ -157,6 +168,9 @@
 .b{
     width: 96%;
     height: 40px;
+    background-color: rgb(98, 98, 230);
+    border-radius: 30px;
+    color: white;
 }
 
 .box1-title{
@@ -203,4 +217,12 @@
     flex-direction: row;
     gap: 100px;
     margin-left: 110px;
+}
+
+.b10{
+    border-radius: 20px;
+}
+
+.settings{
+    color: black;
 }

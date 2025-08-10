@@ -3,6 +3,14 @@ const bcrypt = require("bcrypt");
 const createEmp = async (req, res) => {
     try{
         const{empID,name,email,password,role, phone_no, address} = req.body;
+
+        if(!/^E/.test(empID)){
+            return res.status(400).json({   
+                message: "Employee ID must start with 'E'",
+                success: false
+            });
+        }
+
         const emp = await Emp.findOne({email});  
         if(emp){
             return res.status(409).json({

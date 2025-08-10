@@ -1,13 +1,13 @@
 
-const User = require("../../models/User.js");
+const Employe = require("../../models/Employe.js");
 
-const showUsers = async(req,res)=>{
+const showEmp = async(req,res)=>{
     try{
        
-        const user = await User.find().select("custID name email phone_no address");
+        const emp = await Employe.find().select("empID name email phone_no address");
 
         return res.status(201).json({
-            data:user,
+            data:emp,
             sucess:true
         })
     }
@@ -18,4 +18,4 @@ const showUsers = async(req,res)=>{
         })
     }
 }
-module.exports = showUsers;
+module.exports = showEmp;

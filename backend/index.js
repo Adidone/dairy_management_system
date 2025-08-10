@@ -12,6 +12,7 @@ const createEmp = require("./routes/empRoutes/RouteEmpCreate.js");
 const loginEmp = require("./routes/empRoutes/RouteEmpLogin.js");
 const milkCollection = require("./routes/milkRoutes/RouteMilkCollection.js")
 const showUsers = require("./routes/userRoutes/RouteUsersShow.js")
+const showEmp = require("./routes/empRoutes/RouteEmpShow.js");
 const showAllCollection = require("./routes/milkRoutes/RouteMilkShow.js")
 const showByDate = require("./routes/milkRoutes/RouteMilkShow.js");
 const showByCust = require('./routes/milkRoutes/RouteMilkShow.js');
@@ -20,6 +21,9 @@ const deleteUser = require('./routes/deleteRoutes/RouteDelete.js')
 const deleteEmp = require("./routes/deleteRoutes/RouteDelete.js")
 const deleteCollection = require("./routes/deleteRoutes/RouteDelete.js")
 const editCollection = require("./routes/editRoutes/RouteMilkEdit.js");
+const registerCattle = require('./routes/cattleRoutes/RouteCattle.js');
+const addComplaint = require("./routes/userRoutes/RouteUserComplaint.js");
+const showComplaints = require("./routes/userRoutes/RouteUserComplaint.js")
 
 const app = express();
 app.use(cors());    
@@ -49,12 +53,15 @@ app.get("/", (req, res) => {
 app.use("/user",createUser);
 app.use("/user",loginUser);
 app.use("/user",showUsers);
+app.use("/user",addComplaint)
+app.use("/user",showComplaints);
 
 app.use("/admin",createAdmin);
 app.use("/admin",loginAdmin);
 
 app.use("/emp",createEmp);
 app.use("/emp",loginEmp);
+app.use("/emp",showEmp);
 
 app.use("/milk",milkCollection);
 app.use("/milk",showAllCollection)
@@ -65,10 +72,9 @@ app.use("/milk",showByEmp);
 app.use("/delete",deleteUser);
 app.use("/delete",deleteEmp);
 app.use("/delete",deleteCollection);
-
-
 app.use("/edit",editCollection);
 
+app.use("/cattle",registerCattle);
 
 app.listen(5555, () => {
     console.log("server is running on port 5555");

@@ -16,8 +16,8 @@ function AdminDashboard() {
                             <p style={{marginTop:"-10px"}}>ADMIN</p>
                         </div>
                         <div className="header-right">
-                            <button>SETTINGS</button>
-                            <button className="logout"
+                            <button className="b10 settings">SETTINGS</button>
+                            <button className="logout b10"
                                 onClick={()=>{
                                     localStorage.removeItem("jwtToken");
                                     setTimeout(() => {
@@ -33,12 +33,24 @@ function AdminDashboard() {
                     <div className="gap-content"></div>
                     <div className="dashboard-left">
                         <div className="buttons">
-                            <button className="btn1 b">MANAGE FARMER</button>
-                            <button className="btn2 b">ADD CATTLE</button>
-                            <button className="btn3 b">ADD MILK</button>
-                            <button className="btn4 b">ADD FEED</button>
-                            <button className="btn5 b">ADD VACCINE</button>
-                            <button className="btn6 b">ADD MEDICINE</button>
+                            <button className="btn1 b" onClick={()=>{
+                                navigate("/admin/addfarmer");
+                            }}>ADD FARMER</button>
+                            <button className="btn2 b" onClick={()=>{
+                                navigate("/admin/registercattle");
+                            }}>REGISTER CATTLE</button>
+                            <button className="btn3 b" onClick={()=>{
+                                navigate("/admin/addemploye");
+                            }}>ADD EMPLOYE</button>
+                            <button className="btn8 b" onClick={()=>{
+                                navigate("/admin/managefarmer");
+                            }}>MANAGE FARMER</button>
+                            <button className="btn9 b" onClick={()=>{
+                                navigate("/admin/manageemploye");
+                            }}>MANAGE EMPLOYE</button>
+                            <button className="btn6 b" onClick={()=>{
+                                navigate("/admin/showcomplaints");
+                            }}>VIEW COMPLAINTS</button>
                         </div>
                     </div>
                     <div className="dashboard-right">

@@ -1,0 +1,47 @@
+/* .complaint-box{
+    height: 80vh;
+    width: 50%;
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+    margin-left: 430px;
+    border-radius: 20px;
+    margin-top: 70px;
+} */
+
+.complaint-box{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.complaint{
+    background-color: red;
+    color: azure;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    border-radius: 30px;
+}
+
+.complaint button{
+    margin-left: -10px;
+}
+
+.complaint p{
+    margin-left: 10px;
+}
+
+.complaint input{
+    height: 15px;
+    width: 400px;
+    border-radius: 10px;
+    border: none;
+}   
+
+.msg{
+    width: 100px;
+}
