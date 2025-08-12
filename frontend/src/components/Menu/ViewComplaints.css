@@ -10,14 +10,17 @@
 } */
 
 .complaint-box{
+    margin-top: 10px;
     text-align: center;
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: 50%;
+    margin-left: 430px;
 }
 
 .complaint{
-    background-color: red;
+    background-color: rgb(43, 37, 37);
     color: azure;
     display: flex;
     flex-direction: row;
@@ -36,7 +39,7 @@
 }
 
 .complaint input{
-    height: 15px;
+    height: 25px;
     width: 400px;
     border-radius: 10px;
     border: none;
@@ -45,3 +48,10 @@
 .msg{
     width: 100px;
 }
+
+.complaint button{
+    background-color: blue;
+    color: white;
+    border-radius: 10px;
+}
+

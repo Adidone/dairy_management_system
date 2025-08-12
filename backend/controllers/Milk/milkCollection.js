@@ -4,12 +4,27 @@ const Emp = require("../../models/Employe")
 const milkCollection = async(req,res)=>{
     try{
 
-        const indexes = await Milk.collection.getIndexes();
+        // const indexes = await Milk.collection.getIndexes();
      
-        // await Milk.collection.dropIndex("employe_1");
+        // await Milk.collection.dropIndex("custID_1");
         // console.log(indexes);
+        
 
-        const{custID,quantity,fat,rate,date,empID} = req.body;
+        let{custID,type,quantity,fat,snf,bill,date,empID} = req.body;
+        
+
+        if(type == "cow"){
+            bill = (fat/100 * quantity) * 50 + (snf/100 * quantity) * 30;
+        }
+        else if(type == "buffalow"){
+            bill = (fat/100 * quantity) * 60 + (snf/100 * quantity) * 40;
+        }
+        else{
+            return res.status(400).json({
+                message:"Invalid milk type",
+                sucess:false
+            })
+        }
 
         const emp = await Emp.findOne({empID});
         if(!emp){
@@ -22,21 +37,24 @@ const milkCollection = async(req,res)=>{
         const user = await User.findOne({custID});
         if(!user){
             return res.status(409).json({
-                message:"Customer is not registered",
+                message:"Farmer is not registered",
                 sucess:false
             })
         }
 
-        const milk = await Milk.findOne({custID});
-        if(milk){
-            return res.status(409).json({
-                message:"Milk is already collected from this customer",
-                sucess:false
-            })
-        }
+        // const milk = await Milk.findOne({custID,});
+        // if(milk){
+        //     return res.status(409).json({
+        //         message:"Milk is already collected from this Farmer",
+        //         sucess:false
+        //     })
+        // }
+
+        bill = parseFloat(bill.toFixed(2));
+
 
         const newCollection = new Milk({
-            custID,quantity,fat,rate,date,empID
+            custID,type,quantity,fat,snf,bill,date,empID
         })
 
         await newCollection.save();

@@ -10,13 +10,22 @@ const milkSchema = new mongoose.Schema({
         type:Number,
         required:true,
     },
+    type:{
+        type:String,
+        required:true,
+        enum:["cow","buffalow"], // Assuming these are the types of milk
+        default:"cow"
+    },
     fat:{
         type:Number,
         required:true
     },
-    rate:{
+    snf:{
         type:Number,
-        required:true,
+        required:true
+    },
+    bill:{
+        type:Number,
     },
     date:{
         type:Date,

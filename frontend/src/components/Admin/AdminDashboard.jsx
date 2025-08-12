@@ -2,7 +2,12 @@ import React from "react";
 import "./AdminDashboard.css";
 import  logo from "../../assets/images/login.png";
 import { useNavigate } from "react-router-dom";
+import TodaysCollection from "../BoxContents/TodaysCollection";
+import TopMilkSellers from "../BoxContents/TopMilkSellers";
+
+
 function AdminDashboard() {
+    
     const navigate = useNavigate();
     return (
         <>
@@ -58,26 +63,7 @@ function AdminDashboard() {
                             <div className="box1">
                                 <p className="box1-title">TOP MILK SELLERS</p>
                                 <div className="sellers">
-                                    <div className="seller">
-                                        <p>C01</p>
-                                        <p>Ranjan Mali</p>
-                                        <p>200ltr</p>
-                                    </div>
-                                    <div className="seller">
-                                        <p>C02</p>
-                                        <p>Vedant Bhat</p>
-                                        <p>100ltr</p>
-                                    </div>
-                                    <div className="seller">
-                                        <p>C10</p>
-                                        <p>Aditya Done</p>
-                                        <p>50ltr</p>
-                                    </div>
-                                    <div className="seller">
-                                        <p>C10</p>
-                                        <p>Aditya Done</p>
-                                        <p>50ltr</p>
-                                    </div>
+                                    <TopMilkSellers/>
                                 </div>
                             </div>
                             <div className="box2">
@@ -138,7 +124,7 @@ function AdminDashboard() {
                             <div className="small3">
                                 <p>TODAYS</p>
                                 <p>COLLECTION</p> 
-                                <h1>101 L</h1>
+                                <TodaysCollection/>
                             </div>
                         </div>
                     </div>

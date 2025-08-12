@@ -65,7 +65,7 @@ body{
 }
 
 .frow {
-    height: 60%;
+    height: 62%;
     width: 100%;
     /* background-color: black; */
     display: flex;
@@ -193,7 +193,10 @@ body{
 
 .seller p{
     font-size: 20px;
+    width: 60px;
 }
+
+
 
 .small3 p{
     text-align: center;

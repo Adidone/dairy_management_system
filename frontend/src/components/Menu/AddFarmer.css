@@ -1,10 +1,11 @@
 .formbox{
-    height: 80vh;
+    height: max-content;
     width: 75vh;
     background-color: antiquewhite;
     margin-left: 550px;
     margin-top: 70px;
     border-radius: 40px;
+    
 }
 
 .formbox{
@@ -33,12 +34,13 @@
 }
 
 .btn5{
-    margin-left: -120px;
+    margin-left: -90px;
     width: 150px;   
     height: 30px;
     border-radius: 20px;
     background-color: blue;
     color: white;
+    margin-bottom: 30px;
 }   
 
 .input3{

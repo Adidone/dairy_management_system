@@ -26,7 +26,7 @@ const createUser = async (req, res) => {
         });
         await newUser.save();
         return res.status(201).json({
-            message: "User created successfully",
+            message: "Farmer registered successfully",
             success: true
         });
     }

@@ -5,7 +5,7 @@ import "./ViewComplaints.css"
 const ViewComplaints = () => {
 
     const [complaints, setComplaints] = useState([]);
-
+    const [c,setC] = useState("rgb(43, 37, 37);")
     useEffect(() => {
         const getComplaints = async () => {
             try {
@@ -32,6 +32,7 @@ const ViewComplaints = () => {
 
     return (
         <div>
+            
             <div className="complaint-box">
                 {complaints.map((complaint, index) => (
                     <div key={index} className="complaint">
@@ -39,7 +40,7 @@ const ViewComplaints = () => {
                         <h3>---</h3>
                         <p className="msg">{complaint.msg}</p>
                         <input type="text" />
-                        <button>SUBMIT</button>
+                        <button>REPLY</button>
                     </div>
                 ))}
             </div>
