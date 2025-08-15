@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const todayCollection = async (req, res) => {
     try {
         const today = new Date().toISOString().split("T")[0];
-        
+    
         const collections = await Milk.find({ date: today });
         if (collections.length === 0) {
             return res.status(404).json({

@@ -21,11 +21,15 @@ const todayCollection = require("./routes/milkRoutes/RouteMilkShow.js");
 const deleteUser = require('./routes/deleteRoutes/RouteDelete.js')
 const deleteEmp = require("./routes/deleteRoutes/RouteDelete.js")
 const deleteCollection = require("./routes/deleteRoutes/RouteDelete.js")
-const editCollection = require("./routes/editRoutes/RouteMilkEdit.js");
+const editCollection = require("./routes/editRoutes/RouteEdit.js");
 const registerCattle = require('./routes/cattleRoutes/RouteCattle.js');
 const addComplaint = require("./routes/userRoutes/RouteUserComplaint.js");
 const showComplaints = require("./routes/userRoutes/RouteUserComplaint.js");
 const topMilkSellers = require("./routes/milkRoutes/RouteMilkShow.js");
+const threeDaysSell = require("./routes/milkRoutes/RouteMilkShow.js");
+const editEmp = require("./routes/editRoutes/RouteEdit.js");
+const editUser = require("./routes/editRoutes/RouteEdit.js");
+const replyComplaint = require("./routes/userRoutes/RouteUserComplaint.js");
 
 const app = express();
 app.use(cors());    
@@ -57,6 +61,7 @@ app.use("/user",loginUser);
 app.use("/user",showUsers);
 app.use("/user",addComplaint)
 app.use("/user",showComplaints);
+app.use("/user",replyComplaint)
 
 app.use("/admin",createAdmin);
 app.use("/admin",loginAdmin);
@@ -72,11 +77,14 @@ app.use("/milk",showByCust);
 app.use("/milk",showByEmp);
 app.use("/milk",todayCollection);
 app.use("/milk",topMilkSellers);
+app.use("/milk",threeDaysSell);
 
 app.use("/delete",deleteUser);
 app.use("/delete",deleteEmp);
 app.use("/delete",deleteCollection);
 app.use("/edit",editCollection);
+app.use("/edit",editEmp)
+app.use("/edit",editUser)
 
 app.use("/cattle",registerCattle);
 

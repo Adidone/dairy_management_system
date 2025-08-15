@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import "./AdminDashboard.css";
 import  logo from "../../assets/images/login.png";
 import { useNavigate } from "react-router-dom";
-import TodaysCollection from "../BoxContents/TodaysCollection";
-import TopMilkSellers from "../BoxContents/TopMilkSellers";
-
+import DashBaord from "../Menu/DashBoard";
+import RegisterCattle from "../Menu/RegisterCattle";
+import AddEmployee from "../Menu/AddEmployee";
+import ManageFarmer from "../Menu/ManageFarmer";
+import ManageEmployee from "../Menu/ManageEmploye";
+import ViewComplaints from "../Menu/ViewComplaints";
+import ManageEmploye from "../Menu/ManageEmploye";
 
 function AdminDashboard() {
+    const[cattle,setCattle] = useState(false);
+    const[home,setHome] = useState(true);
+    const[emp,setEmp] = useState(false);
+    const[manageF,setManageF] = useState(false);
+    const[manageE,setManageE] = useState(false);
+    const[complaints,setComplaints] = useState(false);
     
     const navigate = useNavigate();
     return (
@@ -39,94 +49,62 @@ function AdminDashboard() {
                     <div className="dashboard-left">
                         <div className="buttons">
                             <button className="btn1 b" onClick={()=>{
-                                navigate("/admin/addfarmer");
-                            }}>ADD FARMER</button>
+                                setHome(true);
+                                setCattle(false);
+                                setEmp(false);
+                                setManageF(false);
+                                setManageE(false);
+                                setComplaints(false);
+                            }}>HOME</button>
                             <button className="btn2 b" onClick={()=>{
-                                navigate("/admin/registercattle");
+                                setHome(false);
+                                setCattle(true);
+                                setEmp(false);
+                                setManageF(false);
+                                setManageE(false);
+                                setComplaints(false);
                             }}>REGISTER CATTLE</button>
                             <button className="btn3 b" onClick={()=>{
-                                navigate("/admin/addemploye");
+                                setHome(false);
+                                setCattle(false);
+                                setEmp(true);
+                                setManageF(false);
+                                setManageE(false);
+                                setComplaints(false);
                             }}>ADD EMPLOYE</button>
                             <button className="btn8 b" onClick={()=>{
-                                navigate("/admin/managefarmer");
+                                setHome(false);
+                                setCattle(false);
+                                setEmp(false);
+                                setManageF(true);
+                                setManageE(false);
+                                setComplaints(false);
                             }}>MANAGE FARMER</button>
                             <button className="btn9 b" onClick={()=>{
-                                navigate("/admin/manageemploye");
+                                setHome(false);
+                                setCattle(false);
+                                setEmp(false);
+                                setManageF(false);
+                                setManageE(true);
+                                setComplaints(false);
                             }}>MANAGE EMPLOYE</button>
                             <button className="btn6 b" onClick={()=>{
-                                navigate("/admin/showcomplaints");
+                                setHome(false);
+                                setCattle(false);
+                                setEmp(false);
+                                setManageF(false);
+                                setManageE(false);
+                                setComplaints(true);
                             }}>VIEW COMPLAINTS</button>
                         </div>
                     </div>
                     <div className="dashboard-right">
-                        <div className="frow"> 
-                            <div className="box1">
-                                <p className="box1-title">TOP MILK SELLERS</p>
-                                <div className="sellers">
-                                    <TopMilkSellers/>
-                                </div>
-                            </div>
-                            <div className="box2">
-                                <p className="box1-title">TOP EMPLOYEE</p>
-                                <div className="sellers">
-                                    <div className="seller">
-                                        <p>C01</p>
-                                        <p>Ranjan Mali</p>
-                                        <p>200L</p>
-                                    </div>
-                                    <div className="seller">
-                                        <p>C02</p>
-                                        <p>Vedant Bhat</p>
-                                        <p>100L</p>
-                                    </div>
-                                    <div className="seller">
-                                        <p>C10</p>
-                                        <p>Aditya Done</p>
-                                        <p>50L</p>
-                                    </div>
-                                    <div className="seller">
-                                        <p>C10</p>
-                                        <p>Aditya Done</p>
-                                        <p>50L</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="srow">
-                            <div className="small1">
-                                <p className="box1-title">LAST 3 DAYS SELL</p>
-                                <div className="days">
-                                    <div className="day">
-                                        <p>1-1-2000</p>
-                                        <p>200L</p>
-                                    </div>
-                                    <div className="day">
-                                        <p>1-1-2000</p>
-                                        <p>150L</p>
-                                    </div>
-                                    <div className="day">
-                                        <p>1-1-2000</p>
-                                        <p>100L</p>
-                                    </div>
-                                </div> 
-                            </div>
-                            <div className="small2">
-                                <p className="box1-title">STOCK LEFT TODAY</p>
-                                <div className="day">
-                                        <p>COW</p>
-                                        <p>200L</p>
-                                    </div>
-                                    <div className="day">
-                                        <p>BUFFALO</p>
-                                        <p>150L</p>
-                                    </div>
-                            </div>
-                            <div className="small3">
-                                <p>TODAYS</p>
-                                <p>COLLECTION</p> 
-                                <TodaysCollection/>
-                            </div>
-                        </div>
+                        {home && <DashBaord/>}
+                        {cattle && <RegisterCattle/>}
+                        {emp && <AddEmployee/>}
+                        {manageF && <ManageFarmer/>}
+                        {manageE && <ManageEmploye/>}
+                        {complaints && <ViewComplaints/>}
                     </div>
                 </div>
             </div>

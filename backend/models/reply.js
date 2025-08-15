@@ -1,7 +1,8 @@
 
+
 const mongoose = require('mongoose');
 
-const complaintSchema = new mongoose.Schema({
+const replySchema = new mongoose.Schema({
     custID:{
         type:String,
     },
@@ -10,8 +11,11 @@ const complaintSchema = new mongoose.Schema({
     },
     msg:{
         type:String,
+    },
+    reply:{
+        type:String
     }
 })
 
-const Complaint = mongoose.model("Complaint",complaintSchema);
-module.exports = Complaint;
+const Reply = mongoose.model("Reply",replySchema);
+module.exports = Reply;

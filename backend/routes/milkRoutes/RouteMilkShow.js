@@ -5,6 +5,7 @@ const showByCust = require('../../controllers/Milk/showMilkByCust');
 const showByEmp = require('../../controllers/Milk/showByEmp');
 const todayCollection = require('../../controllers/Milk/todaysCollection');
 const topMilkSellers = require('../../controllers/Milk/topMilkSellers');
+const threeDaysSell = require('../../controllers/Milk/threeDaysSell');
 
 const router = express.Router();
 
@@ -14,6 +15,7 @@ router.get("/showbycust",showByCust);
 router.get("/showbyemp",showByEmp);
 router.get("/todayscollection",todayCollection);
 router.get("/topsellers",topMilkSellers);
+router.get("/threedayssell",threeDaysSell);
 
 module.exports = router;
 

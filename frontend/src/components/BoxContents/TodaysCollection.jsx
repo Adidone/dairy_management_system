@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import AdminDashboard from "../Admin/AdminDashboard";
 
 
 const TodaysCollection = ()=>{
-    const[litres,setLitres] = useState(0);   
+    const[litres,setLitres] = useState(0);  
+    const [loading, setLoading] = useState(true); 
    
     useEffect(()=>{
         const todaysCollection = async () =>{
@@ -16,18 +16,24 @@ const TodaysCollection = ()=>{
                     const totalLitres = data.reduce((total,curr)=>{
                         return total = total + curr.quantity;
                     },0)
-                    console.log(totalLitres);
+                    // console.log(totalLitres);
                     setLitres(totalLitres);
+                    setLoading(false);
                 } else {
-                    setLitres(0); 
+                    setLitres(0);
+                    setLoading(false); 
                 }
             }
             catch(err){
                 setLitres(0);
+                setLoading(false);
             }
         }
         todaysCollection();
     },[])
+    if(loading){
+        return <div className="spinner-4"></div>
+    }
     return <h1>{litres}L</h1>;
 }
 

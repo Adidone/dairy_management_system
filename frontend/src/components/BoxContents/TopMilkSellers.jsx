@@ -4,7 +4,7 @@ import { data } from "react-router-dom";
 const TopMilkSellers = () => {
 
     const [seller, setSeller] = useState([]);
-
+    const [loading, setLoading] = useState(true);
     useEffect(() => {
         const topSellers = async () => {
             try {
@@ -14,6 +14,7 @@ const TopMilkSellers = () => {
                 if (sucess) {
                     // console.log(data)
                     setSeller(data);
+                    setLoading(false);
                     
                 } else {
                     console.error("Failed to fetch top milk sellers");
@@ -27,9 +28,13 @@ const TopMilkSellers = () => {
         topSellers();
     }, [])
 
+    if(loading){
+        return <div className="spinner-1"></div>
+    }
+
     return (
         <>
-            {seller.map((item, index) => (
+            {seller.slice(0,4).map((item, index) => (
                 <div className="seller name" key={index}>
                     <p>{item.custID}</p>
                     <p>{item.name}</p>

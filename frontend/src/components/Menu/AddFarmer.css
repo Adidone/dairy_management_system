@@ -1,10 +1,11 @@
 .formbox{
-    height: max-content;
-    width: 75vh;
+    height: 100%;
+    width: 144vh;
     background-color: antiquewhite;
-    margin-left: 550px;
-    margin-top: 70px;
-    border-radius: 40px;
+    /* margin-left: 550px; */
+    /* margin-top: 70px; */
+    border-radius: 10px;
+    border: 3px solid black;
     
 }
 

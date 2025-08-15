@@ -39,7 +39,7 @@ const ViewComplaints = () => {
                         <p>{complaint.custID}</p>
                         <h3>---</h3>
                         <p className="msg">{complaint.msg}</p>
-                        <input type="text" />
+                        <input type="text" value={}/>
                         <button>REPLY</button>
                     </div>
                 ))}
