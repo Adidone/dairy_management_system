@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import "./AdminLogin.css";
-import logo from "../../assets/images/logo.png";
+import "./Admin/AdminLogin.css";
 import { useNavigate } from "react-router-dom";
-function AdminLogin() {
+function EmpLogin() {
 
   const navigate = useNavigate();
 
@@ -10,8 +9,7 @@ function AdminLogin() {
   const[password, setPassword] = useState("");
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    const res = await fetch("http://localhost:5555/admin/login", {
+    const res = await fetch("http://localhost:5555/emp/login", {
       method: "POST",
       headers: {  
         "Content-Type": "application/json"
@@ -22,19 +20,22 @@ function AdminLogin() {
       })
     });
     const data = await res.json();    
-    const{message, sucess, jwtToken} = data;
+    const{message, sucess, jwtToken,empAddress,empName,email,empEmpID} = data;
+    console.log(data)
     if(sucess){
       localStorage.setItem("jwtToken", jwtToken);
+      localStorage.setItem("empAddress",empAddress);
+      localStorage.setItem("empName",empName);
+      localStorage.setItem("email",email)
+      localStorage.setItem("empEmpID",empEmpID);
+      console.log(data)
       setTimeout(() => {
-        navigate("/admin/dashboard");   
+        navigate("/emp/dashboard");   
       }, 1000);
       alert(message);
     } else {
       alert(message);
       console.error("Login failed:", message);
-    }
-    if(!res.ok) {
-      throw new Error("Network response was not ok");
     }
     console.log("Login response:", data);
     setUsername("");  
@@ -54,18 +55,13 @@ function AdminLogin() {
   return (
     <>
       <div className="main">
-        <div className="logo">
-          <img src={logo} alt="" />
-          <p>DAIRY OPTIMIZATION</p>
-        </div>
-
         <div className="label1">
-          <label htmlFor="username">username</label>
+          {/* <label htmlFor="username">username</label> */}
           <input className="input" type="email" name="username" id="username" onChange={handleChange}/>
         </div>
 
         <div className="label2">
-          <label htmlFor="password">password</label>
+          {/* <label htmlFor="password">password</label> */}
           <input className="input" type="password" name="password" id="password" onChange={handleChange}/>
         </div>
 
@@ -80,4 +76,4 @@ function AdminLogin() {
   );
 }
 
-export default AdminLogin;
+export default EmpLogin;

@@ -10,14 +10,14 @@ const loginEmp = async(req,res)=>{
         const emp = await Emp.findOne({ email });
         
 
-        if(!user){
+        if(!emp){
             return res.status(409).json({
                 message:"Emp not Found with this email ID",
                 sucess:false
             })
         }
 
-        const isPassEqual = await bcrypt.compare(password,user.password);
+        const isPassEqual = await bcrypt.compare(password,emp.password);
         console.log(isPassEqual)
 
         if(!isPassEqual){
@@ -36,14 +36,19 @@ const loginEmp = async(req,res)=>{
                 expiresIn:'24h'
             }
         )
-
         return res.status(201).json({
             message:"Login Sucessfully",
             sucess:true,
-            jwtToken
+            jwtToken,
+            empEmpID:emp.empID,
+            email: emp.email,
+            empName: emp.name,
+            empAddress: emp.address,
+            
         })
     }
     catch(err){
+        console.error("Login error:", err);
         return res.status(500).json({
             message:err.message,
             sucess:false

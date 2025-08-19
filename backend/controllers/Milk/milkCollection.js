@@ -10,20 +10,13 @@ const milkCollection = async(req,res)=>{
         // console.log(indexes);
         
 
-        let{custID,type,quantity,fat,snf,bill,date,empID} = req.body;
+        let{custID,type,quantity,fat,snf,bill,date,empID,status,collected} = req.body;
         
-
         if(type == "cow"){
             bill = (fat/100 * quantity) * 50 + (snf/100 * quantity) * 30;
         }
         else if(type == "buffalow"){
             bill = (fat/100 * quantity) * 60 + (snf/100 * quantity) * 40;
-        }
-        else{
-            return res.status(400).json({
-                message:"Invalid milk type",
-                sucess:false
-            })
         }
 
         const emp = await Emp.findOne({empID});
@@ -42,6 +35,14 @@ const milkCollection = async(req,res)=>{
             })
         }
 
+        const done = await Milk.findOne({custID,type,date})
+        if(done){
+            return res.status(400).json({
+                message:`Todays ${type} milk Already collected for ${custID}`,
+                sucess:false
+            })
+        }
+
         // const milk = await Milk.findOne({custID,});
         // if(milk){
         //     return res.status(409).json({
@@ -54,11 +55,12 @@ const milkCollection = async(req,res)=>{
 
 
         const newCollection = new Milk({
-            custID,type,quantity,fat,snf,bill,date,empID
+            custID,type,quantity,fat,snf,bill,date,empID,status,collected
         })
 
-        await newCollection.save();
 
+        await newCollection.save();
+        
         return res.status(509).json({
             message:"Milk collected sucessfully",
             sucess:true

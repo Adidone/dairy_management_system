@@ -34,6 +34,15 @@ const milkSchema = new mongoose.Schema({
     empID:{
         type:String,
         required:true
+    },
+    status:{
+        type: String,
+        enum: ['pending','completed','failed','ongoing'],
+        default: 'pending',
+    },
+    collected:{
+        type:Boolean,
+        default:false
     }
 });
 

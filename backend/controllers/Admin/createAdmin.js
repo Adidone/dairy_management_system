@@ -1,10 +1,10 @@
-const User = require("../../models/User.js");
+const Admin = require("../../models/Admin");
 const bcrypt = require("bcrypt");
 const createAdmin = async (req, res) => {
     try{
-        const{name,email,password,role, phone_no, address} = req.body;
+        const{email,password} = req.body;
         // console.log(name, email, password, role, phone_no, address);
-        const user = await User.findOne({email});  
+        const user = await Admin.findOne({email});  
         if(user){
             return res.status(409).json({
                 message: "ID already exists with this email",
@@ -12,10 +12,11 @@ const createAdmin = async (req, res) => {
             });
         }
         const hashed_password = await bcrypt.hash(password,10);
-        const newUser = new User({
-            name, email, password:hashed_password, role, phone_no, address
+        const newAdmin = new Admin({
+            email,
+            password: hashed_password
         });
-        await newUser.save();   
+        await newAdmin.save();   
         // console.log(newUser.name);
         return res.status(201).json({   
             message: "Admin created successfully",

@@ -32,9 +32,6 @@ const AddFarmer = () => {
             case 'phone_no':
                 setPhoneNo(value);
                 break;
-            case 'address':
-                setAddress(value);
-                break;
             default:
                 break;
         }
@@ -43,6 +40,7 @@ const AddFarmer = () => {
 
     const handleClick = async (e) => {
         e.preventDefault();
+        setAddress(localStorage.getItem("empAddress"))
         if (!custID || !name || !email || !password || !phone_no || !address) {
             console.log("all fields necessary");
             alert("all fields are necessary");
@@ -111,10 +109,6 @@ const AddFarmer = () => {
                 <div className="label3">
                     <label htmlFor="phone_no">Phone No :</label>
                     <input type="text" name='phone_no' placeholder='Enter Phone Number' className='input3' onChange={handleChange} value={phone_no} />
-                </div>
-                <div className="label3">
-                    <label htmlFor="address">Address :</label>
-                    <input type="text" name='address' placeholder='Enter Address' className='input3' onChange={handleChange} value={address} />
                 </div>
                 <button className='btn5' type='submit' onClick={handleClick}>ADD FARMER</button>
             </div>

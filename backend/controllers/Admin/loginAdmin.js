@@ -1,13 +1,13 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const User = require("../../models/User.js");
+const Admin = require("../../models/Admin");
 
 require("dotenv").config();
 
 const loginAdmin = async(req,res)=>{
     try{
         const{email,password} = req.body;
-        const user = await User.findOne({ email });
+        const user = await Admin.findOne({ email });
         
 
         if(!user){
@@ -40,7 +40,9 @@ const loginAdmin = async(req,res)=>{
         return res.status(201).json({
             message:"Login Sucessfully",
             sucess:true,
-            jwtToken
+            jwtToken,
+            email:user.email,
+            
         })
     }
     catch(err){

@@ -6,7 +6,6 @@ import DashBaord from "../Menu/DashBoard";
 import RegisterCattle from "../Menu/RegisterCattle";
 import AddEmployee from "../Menu/AddEmployee";
 import ManageFarmer from "../Menu/ManageFarmer";
-import ManageEmployee from "../Menu/ManageEmploye";
 import ViewComplaints from "../Menu/ViewComplaints";
 import ManageEmploye from "../Menu/ManageEmploye";
 
@@ -17,6 +16,7 @@ function AdminDashboard() {
     const[manageF,setManageF] = useState(false);
     const[manageE,setManageE] = useState(false);
     const[complaints,setComplaints] = useState(false);
+    const[btn,setBtn] = useState("green")
     
     const navigate = useNavigate();
     return (
@@ -27,7 +27,7 @@ function AdminDashboard() {
                     <div className="header-left">
                         <img src={logo} alt="" className="header-logo"/>
                         <div className="header-details">
-                            <h4>admin@gmail.com</h4>
+                            <h4>{localStorage.getItem("email")}</h4>
                             <p style={{marginTop:"-10px"}}>ADMIN</p>
                         </div>
                         <div className="header-right">
@@ -35,8 +35,9 @@ function AdminDashboard() {
                             <button className="logout b10"
                                 onClick={()=>{
                                     localStorage.removeItem("jwtToken");
+                                    localStorage.removeItem("email");
                                     setTimeout(() => {
-                                       navigate("/", { replace: true });
+                                       navigate("/login", { replace: true });
                                     }, 1000);
                                     alert("You have been logged out successfully.");
                                 }}
@@ -48,13 +49,17 @@ function AdminDashboard() {
                     <div className="gap-content"></div>
                     <div className="dashboard-left">
                         <div className="buttons">
-                            <button className="btn1 b" onClick={()=>{
+                            <button style={{backgroundColor:`${btn}`}} className="btn1 b" onClick={()=>{
                                 setHome(true);
                                 setCattle(false);
                                 setEmp(false);
                                 setManageF(false);
                                 setManageE(false);
                                 setComplaints(false);
+                                if(home){
+                                    setBtn("yellow")
+                                }
+                                
                             }}>HOME</button>
                             <button className="btn2 b" onClick={()=>{
                                 setHome(false);

@@ -4,7 +4,6 @@ const createUser = async (req, res) => {
     try {
 
         let { custID, name, email, password, role, phone_no, address } = req.body;
-
         if (!/^F/.test(custID)) {
             return res.status(400).json({
                 message: "Farmer ID must start with 'F'",
@@ -22,7 +21,7 @@ const createUser = async (req, res) => {
         }
         const hashed_password = await bcrypt.hash(password, 10);
         const newUser = new User({
-            custID, name, email, password: hashed_password, role, phone_no, address
+            custID, name, email, password: hashed_password, role, phone_no,address
         });
         await newUser.save();
         return res.status(201).json({

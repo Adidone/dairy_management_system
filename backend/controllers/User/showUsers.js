@@ -4,7 +4,7 @@ const User = require("../../models/User.js");
 const showUsers = async(req,res)=>{
     try{
        
-        const user = await User.find().select("custID name email phone_no address");
+        const user = await User.find().select("custID name email phone_no address collected");
 
         return res.status(201).json({
             data:user,

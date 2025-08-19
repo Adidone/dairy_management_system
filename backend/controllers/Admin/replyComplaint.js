@@ -36,8 +36,9 @@ const replyComplaint = async (req, res) => {
         }
 
         return res.status(201).json({
+            success: true,
             message: "Reply Added SucessFully & deleted from Complaint model",
-            success: true
+            
         });
 
     }

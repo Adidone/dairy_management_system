@@ -23,10 +23,12 @@ const userSchema = new mongoose.Schema({
     },
     address: {
         type: String,
-        required: true,     
+        enum:["A","B","C"],
+        default:"A",    
     },
-    role: {
-        type: String
+    collected: {
+        type: Boolean,  
+        default: false,
     }
 });
 

@@ -24,6 +24,8 @@ const empSchema = new mongoose.Schema({
     },
     address: {
         type: String,
+        enum:["A","B","C"],
+        default:"A",
         required: true,     
     },
     role: {
