@@ -30,6 +30,7 @@ const threeDaysSell = require("./routes/milkRoutes/RouteMilkShow.js");
 const editEmp = require("./routes/editRoutes/RouteEdit.js");
 const editUser = require("./routes/editRoutes/RouteEdit.js");
 const replyComplaint = require("./routes/userRoutes/RouteUserComplaint.js");
+const showOtp = require("./routes/userRoutes/RouteUsersShow.js")
 
 const app = express();
 app.use(cors());    
@@ -62,6 +63,7 @@ app.use("/user",showUsers);
 app.use("/user",addComplaint)
 app.use("/user",showComplaints);
 app.use("/user",replyComplaint)
+app.use("/user",showOtp)
 
 app.use("/admin",createAdmin);
 app.use("/admin",loginAdmin);

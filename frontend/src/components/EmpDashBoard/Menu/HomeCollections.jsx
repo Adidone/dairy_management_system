@@ -57,7 +57,8 @@ const HomeCollection = () => {
                     const newFarmers = data.filter(farmer => farmer.address === empAddress);
 
                     setFarmers(newFarmers);
-                    setToday(new Date().toISOString().split("T")[0]);
+                    setToday(new Date().toLocaleDateString("en-CA"));
+                    // console.log(new Date().toLocaleDateString("en-CA"))
 
                 }
                 else {

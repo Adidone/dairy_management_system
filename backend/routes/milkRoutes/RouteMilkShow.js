@@ -11,7 +11,7 @@ const router = express.Router();
 
 router.get("/showAllmilk",showAllCollection);
 router.get("/showbydate",showByDate);
-router.get("/showbycust",showByCust);
+router.post("/showbycust",showByCust);
 router.get("/showbyemp",showByEmp);
 router.get("/todayscollection",todayCollection);
 router.get("/topsellers",topMilkSellers);

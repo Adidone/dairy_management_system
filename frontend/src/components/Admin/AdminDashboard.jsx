@@ -16,7 +16,9 @@ function AdminDashboard() {
     const[manageF,setManageF] = useState(false);
     const[manageE,setManageE] = useState(false);
     const[complaints,setComplaints] = useState(false);
-    const[btn,setBtn] = useState("green")
+    const[btn,setBtn] = useState("rgb(98, 98, 230)")
+
+    
     
     const navigate = useNavigate();
     return (
@@ -49,16 +51,13 @@ function AdminDashboard() {
                     <div className="gap-content"></div>
                     <div className="dashboard-left">
                         <div className="buttons">
-                            <button style={{backgroundColor:`${btn}`}} className="btn1 b" onClick={()=>{
+                            <button className="btn1 b" onClick={()=>{
                                 setHome(true);
                                 setCattle(false);
                                 setEmp(false);
                                 setManageF(false);
                                 setManageE(false);
                                 setComplaints(false);
-                                if(home){
-                                    setBtn("yellow")
-                                }
                                 
                             }}>HOME</button>
                             <button className="btn2 b" onClick={()=>{
@@ -100,7 +99,7 @@ function AdminDashboard() {
                                 setManageF(false);
                                 setManageE(false);
                                 setComplaints(true);
-                            }}>VIEW COMPLAINTS</button>
+                            }}>NOTIFICATION</button>
                         </div>
                     </div>
                     <div className="dashboard-right">

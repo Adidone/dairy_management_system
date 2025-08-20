@@ -1,27 +1,23 @@
 
 
-
-const Milk = require("../../models/MilkDetails");
 const Otp = require("../../models/Otp")
-const showByCust = async (req, res) => {
+const showOtp = async (req, res) => {
     try {
         
         const { custID } = req.body;
-        const user = await Milk.findOne({custID});
-        if (!custID) {
+        const user = await Otp.findOne({custID});
+        if (!user) {
             return res.status(400).json({
                 message: "custID is required",
                 sucess: false
             });
         }
-        const newDate = user.date.toISOString().split("T")[0];
-        console.log(newDate)
-        const milk = await Milk.find({
+        const otp = await Otp.find({
             custID
-        }).select("custID quantity fat snf bill date");
+        }).select("custID type quantity bill date otp");
 
         return res.status(200).json({
-            data: milk,
+            data: otp,
             sucess: true
         })
     }
@@ -32,4 +28,4 @@ const showByCust = async (req, res) => {
         })
     }
 }
-module.exports = showByCust;
+module.exports = showOtp;

@@ -40,7 +40,10 @@ const userLogin = async(req,res)=>{
         return res.status(201).json({
             message:"Login Sucessfully",
             sucess:true,
-            jwtToken
+            jwtToken,
+            email,
+            custID:user.custID,
+            address:user.address,
         })
     }
     catch(err){

@@ -35,6 +35,9 @@ body {
     margin-top: 15px;
     border-radius: 14px;
     background-color: white;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
     /* border: 1.5px solid black; */
 }
 
