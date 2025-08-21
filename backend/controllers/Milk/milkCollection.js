@@ -2,6 +2,7 @@ const Milk = require("../../models/MilkDetails");
 const User = require("../../models/User");
 const Emp = require("../../models/Employe")
 const Otp = require("../../models/Otp")
+const OtpVerify = require("../../models/OtpVerify")
 const milkCollection = async (req, res) => {
     try {
 
@@ -60,15 +61,16 @@ const milkCollection = async (req, res) => {
         //         sucess:false
         //     })
         // }
-
+        const newDate = new Date().toISOString().split("T")[0];
+        console.log(newDate)
         bill = parseFloat(bill.toFixed(2));
         const otp = generateOTP();
         const newOtp = new Otp({
-            custID,type,bill,date,otp
+            custID,type,bill,date:newDate,otp
         })
         
         const newCollection = new Milk({
-            custID, type, quantity, fat, snf, bill, date, empID, status, collected
+            custID, type, quantity, fat, snf, bill, date:newDate, empID, status, collected
         })
 
 

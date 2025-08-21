@@ -23,10 +23,12 @@ const ShowCollection = () => {
 
                 const result = await res.json();
                 if (result) {
-                    console.log(result);
+                    // console.log(result);
                 }
 
                 const { sucess, data } = result;
+                
+                
                 if (sucess) {
                     setCollection(data);
                 }
@@ -59,7 +61,7 @@ const ShowCollection = () => {
                 <tbody>
                     {collection.map((col, index) => (
                         <tr key={index}>
-                            <td>{col.date}</td>
+                            <td>{col.date.split("T")[0]}</td>
                             <td>{col.quantity}</td>
                             <td>{col.fat}</td>
                             <td>{col.snf}</td>

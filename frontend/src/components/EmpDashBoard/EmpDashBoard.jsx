@@ -32,7 +32,7 @@ const EmpDashBoard = () => {
                                     localStorage.removeItem("empAddress");
                                     localStorage.removeItem("empName")
                                     localStorage.removeItem("email");
-                                    localStorage.removeItem("empID");
+                                    localStorage.removeItem("empEmpID");
                                     alert("You have been logged out successfully.");
                                     navigate("/", { replace: true });
                                 }}
@@ -52,15 +52,6 @@ const EmpDashBoard = () => {
                                 setFarmer(true)
                                 setHome(false)
                             }}>ADD FARMER</button>
-                            <button className="btn3 b" onClick={() => {
-
-                            }}>ADD EMPLOYE</button>
-                            <button className="btn8 b" onClick={() => {
-
-                            }}>MANAGE FARMER</button>
-                            <button className="btn9 b" onClick={() => {
-
-                            }}>MANAGE EMPLOYE</button>
                             <button className="btn6 b" onClick={() => {
 
                             }}>VIEW COMPLAINTS</button>

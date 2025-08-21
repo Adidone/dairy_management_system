@@ -14,8 +14,7 @@ const showByCust = async (req, res) => {
                 sucess: false
             });
         }
-        const newDate = user.date.toISOString().split("T")[0];
-        console.log(newDate)
+        
         const milk = await Milk.find({
             custID
         }).select("custID quantity fat snf bill date");

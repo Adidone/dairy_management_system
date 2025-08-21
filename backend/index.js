@@ -31,6 +31,7 @@ const editEmp = require("./routes/editRoutes/RouteEdit.js");
 const editUser = require("./routes/editRoutes/RouteEdit.js");
 const replyComplaint = require("./routes/userRoutes/RouteUserComplaint.js");
 const showOtp = require("./routes/userRoutes/RouteUsersShow.js")
+const otpSubmit = require("./routes/userRoutes/RouteUserCreation.js")
 
 const app = express();
 app.use(cors());    
@@ -64,9 +65,12 @@ app.use("/user",addComplaint)
 app.use("/user",showComplaints);
 app.use("/user",replyComplaint)
 app.use("/user",showOtp)
+app.use("/user",otpSubmit)
 
 app.use("/admin",createAdmin);
 app.use("/admin",loginAdmin);
+app.use("/admin",createAdmin)
+app.use("/admin",createAdmin)
 
 app.use("/emp",createEmp);
 app.use("/emp",loginEmp);
