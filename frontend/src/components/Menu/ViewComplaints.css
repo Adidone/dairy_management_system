@@ -1,0 +1,67 @@
+/* .complaint-box{
+    height: 80vh;
+    width: 50%;
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+    margin-left: 430px;
+    border-radius: 20px;
+    margin-top: 70px;
+} */
+
+.complaint-box{
+    margin-top: 5px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 70%;
+    margin-left: 180px;
+    justify-content: center;
+    
+}
+
+.complaint{
+    background-color:antiquewhite;
+    color: azure;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    border-radius: 30px;
+    border: 2px solid black;
+}
+
+.complaint p{
+    color: black;
+}
+
+
+.complaint button{
+    margin-left: -10px;
+}
+
+.complaint p{
+    margin-left: 10px;
+}
+
+.complaint input{
+    height: 25px;
+    width: 400px;
+    border-radius: 10px;
+    border: 1px solid;
+    
+}   
+
+.msg{
+    width: 100px;
+}
+
+.complaint button{
+    background-color: blue;
+    color: white;
+    border-radius: 10px;
+}
+

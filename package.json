@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "backend",
   "version": "1.0.0",
   "main": "index.js",
@@ -19,5 +20,9 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.17.0",
     "nodemon": "^3.1.10"
+=======
+  "dependencies": {
+    "router": "^2.2.0"
+>>>>>>> 787fbff5e03d9aa5c3510b2d1df4013f815d7fd2
   }
 }
